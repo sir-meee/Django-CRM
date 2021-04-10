@@ -3,6 +3,7 @@ import datetime
 from django.contrib import messages
 from django.shortcuts import render, redirect, reverse
 from django.core.mail import send_mail
+from django.http.response import JsonResponse
 from django.http import HttpResponse
 from django.views import generic
 from .models import Lead, Agent, Category
@@ -366,3 +367,18 @@ class LeadCategoryUpdateView(LoginRequiredMixin, generic.UpdateView):
                 instance.converted_date = datetime.datetime.now()
         instance.save()
         return super(LeadCategoryUpdateView, self).form_valid(form)
+
+
+class LeadJsonView(generic.View):
+
+    def get(self, request, *args, **kwargs):
+
+        qs = list(Lead.objects.all().values(
+            "first_name", 
+            "last_name", 
+            "age")
+        )
+
+        return JsonResponse({
+            "qs": qs,
+        })

@@ -3,13 +3,14 @@ from django.urls import  path
 from .views import  (
     LeadListView, LeadDetailView, LeadCreateView, LeadUpdateView, LeadDeleteView,
     AssignAgentView, CategoryListView, CategoryDetailView, CategoryCreateView, 
-    CategoryUpdateView, CategoryDeleteView, LeadCategoryUpdateView
+    CategoryUpdateView, CategoryDeleteView, LeadCategoryUpdateView, LeadJsonView
 )
 
 app_name = "leads"
 
 urlpatterns = [
     path('', LeadListView.as_view(), name='lead-list'),
+    path('json/', LeadJsonView.as_view(), name='lead-list-json'),
     path('<int:pk>/', LeadDetailView.as_view(), name='lead-detail'),
     path('create/', LeadCreateView.as_view(), name='lead-create'),
     path('<int:pk>/update/', LeadUpdateView.as_view(), name='lead-update'),
