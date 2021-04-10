@@ -1,3 +1,4 @@
+import logging
 import datetime
 
 from django.contrib import messages
@@ -11,6 +12,9 @@ from .forms import LeadForm, LeadModelForm, CustomUserCreationForm, AssignAgentF
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from agents.mixins import OrganisorAndLoginRequiredMixin
+
+
+logger = logging.getLogger(__name__)
 
 # CRUD+L - Create, Retrieve, Update and Delete + List
 
