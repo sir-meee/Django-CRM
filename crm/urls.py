@@ -15,7 +15,7 @@ from django.contrib.auth.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LandingPageView.as_view, name='landing-page'),
+    path('', LandingPageView.as_view(), name='landing-page'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('leads/', include('leads.urls', namespace="leads")),
     path('agents/', include('agents.urls', namespace="agents")),
