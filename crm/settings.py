@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '$*94%@w52%%l=18a_h%ny81d*7f#f%+c-3y@3qf%ap)z2e_2eu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['sammy-crm.herokuapp.com','127.0.0.1']
 
